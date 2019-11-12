@@ -29,7 +29,6 @@ namespace TP3Environnements.Controllers
             Response.Cookies.Add(cookie);
 
             // Redirection à la page où l'utilisateur était déjà
-            return View();
         }
 
         [AllowAnonymous]
