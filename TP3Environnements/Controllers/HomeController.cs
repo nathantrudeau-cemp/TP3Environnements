@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace TP3Environnements.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         public ActionResult Index()
         {
