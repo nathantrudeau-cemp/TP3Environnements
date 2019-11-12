@@ -11,7 +11,7 @@
 <div class="row">
     <h1>
         @{
-            if (Request.Cookies["environnementCourant"] != null)
+            if (Request.Cookies["environnementCourant"] != null && !Request.Url.ToString().Contains("localhost"))
             {
                 @Html.Raw("Branche courante: \"" + Request.Cookies["environnementCourant"].Value + "\"");
             }
