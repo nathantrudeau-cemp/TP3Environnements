@@ -29,7 +29,7 @@ namespace TP3Environnements.Controllers
             Response.Cookies.Add(cookie);
 
             // Redirection à la page où l'utilisateur était déjà
-            return Redirect(Request.UrlReferrer.AbsolutePath);
+            return View();
         }
 
         [AllowAnonymous]
@@ -47,12 +47,10 @@ namespace TP3Environnements.Controllers
             if (cultureCookie != null)
                 culture = cultureCookie.Value;
             else
-                culture = Request.Url.ToString().Contains("dev") ? "dev" : "master";
+            {
+                SetCulture(Request.Url.ToString().Contains("dev") ? "dev" : "master");
+            }
 
-            // Changement de la langue
-            Session["environnementCourant"] = culture;
-            Thread.CurrentThread.CurrentCulture = new System.Globalization.CultureInfo(culture);
-            Thread.CurrentThread.CurrentUICulture = Thread.CurrentThread.CurrentCulture;
 
             return base.BeginExecuteCore(callback, state);
         }
