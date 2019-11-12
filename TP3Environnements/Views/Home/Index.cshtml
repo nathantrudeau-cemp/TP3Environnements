@@ -15,9 +15,13 @@
         {
             @Html.Raw(Request.Cookies["environnementCourant"].Value);
         }
-        else
+        else if (Request.Url.ToString().Contains("localhost"))
         {
             @Html.Raw("master");
+        }
+        else
+        {
+            @Html.Raw("Production");
         }
     }"</h1>
     <div class="col-md-4">

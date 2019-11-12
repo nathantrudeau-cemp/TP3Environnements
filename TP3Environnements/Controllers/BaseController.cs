@@ -49,7 +49,7 @@ namespace TP3Environnements.Controllers
             {
                 if (Request.Url.ToString().Contains("dev"))
                     SetCulture("dev");
-                else
+                else if (Request.Url.ToString().Contains("localhost"))
                     SetCulture("master");
 
             }
