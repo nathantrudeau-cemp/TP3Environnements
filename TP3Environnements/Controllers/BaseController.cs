@@ -11,7 +11,7 @@ namespace TP3Environnements.Controllers
     {
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult SetCulture(string culture)
+        public void SetCulture(string culture)
         {
             // En utilisant la session
             Session["environnementCourant"] = culture;
@@ -29,7 +29,6 @@ namespace TP3Environnements.Controllers
             Response.Cookies.Add(cookie);
 
             // Redirection à la page où l'utilisateur était déjà
-            return View();
         }
 
         [AllowAnonymous]
