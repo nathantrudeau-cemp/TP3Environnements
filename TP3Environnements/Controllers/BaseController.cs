@@ -11,7 +11,7 @@ namespace TP3Environnements.Controllers
     {
         [HttpPost]
         [AllowAnonymous]
-        public ActionResult SetCulture(string culture)
+        public void SetCulture(string culture)
         {
             // En utilisant la session
             Session["environnementCourant"] = culture;
