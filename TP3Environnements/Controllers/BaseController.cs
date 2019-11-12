@@ -47,9 +47,13 @@ namespace TP3Environnements.Controllers
                 culture = cultureCookie.Value;
             else
             {
-                SetCulture(Request.Url.ToString().Contains("dev") ? "dev" : "master");
+                if (Request.Url.ToString().Contains("dev"))
+                    SetCulture("dev");
+                else if (Request.Url.ToString().Contains("localhost"))
+                    SetCulture("master");
+
             }
-                
+
 
             return base.BeginExecuteCore(callback, state);
         }
